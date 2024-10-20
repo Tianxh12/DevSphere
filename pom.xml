@@ -5,8 +5,14 @@
     <groupId>com</groupId>
     <artifactId>DevSphere</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
     <name>DevSphere</name>
     <description>DevSphere</description>
+    <modules>
+        <module>server</module>
+        <module>common</module>
+        <module>pojo</module>
+    </modules>
     <properties>
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
