@@ -18,11 +18,7 @@ target/
 *.iws
 *.iml
 *.ipr
-<<<<<<< HEAD
 lib
-=======
-src/test
->>>>>>> 5b0993ed91c89e4c1e65f4a8f1231bf556a39bee
 
 ### NetBeans ###
 /nbproject/private/
