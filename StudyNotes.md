@@ -45,3 +45,21 @@
 - 定义分页查询类，引入`PageHelper`分页查询
 
 - 全局统一对日期类型进行格式处理
+
+### 2024-11-06
+
+已完成
+
+- 新增"启用"和"禁用"员工账号功能
+
+- 根据id查询员工
+- 修改个人信息
+
+
+
+知识点
+
+- @NoArgsConstructor ： 生成一个无参数的构造方法
+- @AllArgsContructor： 会生成一个包含所有变量的构造方法，默认生成的方法是 public 的
+- @PutMapping : 通常用于更新资源
+- Mybatis中写`<if test="name != null">name = #{name},</if>` 一定要注意`,`
