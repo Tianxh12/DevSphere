@@ -1,9 +1,9 @@
 package com.devsphere.service;
 
-import com.sky.dto.CategoryDTO;
-import com.sky.dto.CategoryPageQueryDTO;
-import com.sky.entity.Category;
-import com.sky.result.PageResult;
+import com.devsphere.dto.CategoryDTO;
+import com.devsphere.dto.CategoryPageQueryDTO;
+import com.devsphere.entity.Category;
+import com.devsphere.result.PageResult;
 import java.util.List;
 
 public interface CategoryService {
