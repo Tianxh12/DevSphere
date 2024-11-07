@@ -63,3 +63,34 @@
 - @AllArgsContructor： 会生成一个包含所有变量的构造方法，默认生成的方法是 public 的
 - @PutMapping : 通常用于更新资源
 - Mybatis中写`<if test="name != null">name = #{name},</if>` 一定要注意`,`
+
+
+
+
+
+### 2024-11-07
+
+已完成
+
+公共字段自动填充
+
+
+
+
+
+知识点
+
+- 使用AOP切面实现公共字段自动填充（创建/修改时间，创建/修改id）   ---   枚举、注解、AOP、反射
+
+  1). 自定义注解 AutoFill，用于标识需要进行公共字段自动填充的方法
+
+  2). 自定义切面类 AutoFillAspect，统一拦截加入了 AutoFill 注解的方法，通过反射为公共字段赋值
+
+  3). 在 Mapper 的方法上加入 AutoFill 注解
+
+- 定义注解时常用
+
+```java
+@Target({ElementType.METHOD})  // 用于指定自定义注解可以应用到哪些程序元素上。 在本例中，它指定了自定义注解可以应用到方法上。
+@Retention(RetentionPolicy.RUNTIME) // 用于指定自定义注解的保留策略。 在本例中，它指定了自定义注解在运行时保留，以便在运行时可以通过反射机制访问到注解的信息。
+```
