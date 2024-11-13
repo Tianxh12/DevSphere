@@ -6,3 +6,8 @@ devsphere:
     database: sky_take_out
     username: root
     password: root
+  gitee:
+    access-token: 24a179591b81937cdb478121919db86f
+    repo-owner: Tian_xiaohua
+    repo-name: DevSphereImg
+    api-url: https://gitee.com/api/v5/repos
