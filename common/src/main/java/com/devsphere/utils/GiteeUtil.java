@@ -57,7 +57,7 @@ public class GiteeUtil {
 
         if (response.getStatusCode().is2xxSuccessful()) {
             // 文件上传成功，返回文件访问URL
-            String uploadedUrl = String.format("https://gitee.com/%s/%s/raw/branch/master/%s",
+            String uploadedUrl = String.format("https://gitee.com/%s/%s/raw/master/%s",
                     giteeProperties.getRepoOwner(),
                     giteeProperties.getRepoName(),
                     filePath);

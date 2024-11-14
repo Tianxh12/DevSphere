@@ -8,6 +8,6 @@ devsphere:
     password: root
   gitee:
     access-token: 24a179591b81937cdb478121919db86f
-    repo-owner: Tian_xiaohua
-    repo-name: DevSphereImg
+    repo-owner: tian_xiao_hua
+    repo-name: dev-sphere-img
     api-url: https://gitee.com/api/v5/repos
