@@ -103,3 +103,24 @@
 已完成
 
 - 上传图片至Gitee
+
+- 新增模块
+
+
+
+知识点
+
+- `@Transactional` 注解是Spring框架中用于管理事务的注解，主要用于声明性事务管理。它能帮助我们简化数据库事务的处理，使得事务的提交、回滚等操作在方法执行时自动完成。
+- xml中循环插入数据
+
+```xml
+<mapper namespace="com.devsphere.mapper.DishFlavorMapper">
+    <insert id="insertBatch">
+        insert into dish_flavor (dish_id, name, value) VALUES
+        <foreach collection="flavors" item="df" separator=",">
+            (#{df.dishId},#{df.name},#{df.value})
+        </foreach>
+    </insert>
+</mapper>
+```
+
