@@ -1,44 +1,41 @@
-import java.util.Arrays;
-import java.util.PriorityQueue;
+import java.util.*;
 
 public class testLeetCode {
-    private final static int[][] DIRS = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
+    public static void main(String[] args) {
+        int[][] cost = {{1,0}};
+        System.out.println(uniquePathsWithObstacles(cost));
 
-    public  static void main(String[] args) {
-        int[][] moveTime = {{0, 1}, {1, 2}};
-        System.out.println(new testLeetCode().minTimeToReach(moveTime));
     }
+    public static int uniquePathsWithObstacles(int[][] obstacleGrid) {
+        int m = obstacleGrid.length;
+        int n = obstacleGrid[0].length;
+        int[][] dp = new int[m][n];
 
-    public int minTimeToReach(int[][] moveTime) {
-        int n = moveTime.length, m = moveTime[0].length;
-        int[][] dis = new int[n][m];
-        for (int[] row : dis) {
-            Arrays.fill(row, Integer.MAX_VALUE);
+        for (int i = 0; i < m; i++) {
+            if (obstacleGrid[i][0] == 1) {
+                dp[i][0] = 0;
+                break;
+            } else {
+                dp[i][0] = 1;
+            }
         }
-        dis[0][0] = 0;
-        PriorityQueue<int[]> pq = new PriorityQueue<>((a, b) -> a[0] - b[0]);
-        pq.add(new int[]{0, 0, 0});
-        for (;;) {
-            int[] p = pq.poll();
-            int d = p[0], i = p[1], j = p[2];
-            if (i == n - 1 && j == m - 1) {
-                return d;
+        for (int i = 0; i < n; i++) {
+            if (obstacleGrid[0][i] == 1) {
+                dp[0][i] = 0;
+                break;
+            } else {
+                dp[0][i] = 1;
             }
-            if (d > dis[i][j]) {
-                continue;
-            }
-            for (int[] q : DIRS) {
-                int x = i + q[0], y = j + q[1];
-                if (0 <= x && x < n && 0 <= y && y < m) {
-                    int newDis = Math.max(d, moveTime[x][y]) + (i + j) % 2 + 1;
-                    if (newDis < dis[x][y]) {
-                        dis[x][y] = newDis;
-                        pq.add(new int[]{newDis, x, y});
-                    }
+        }
+        for (int i = 1; i < m; i++) {
+            for (int j = 1; j < n; j++) {
+                if (obstacleGrid[i][j] == 1) {
+                    dp[i][j] = 0;
+                } else {
+                    dp[i][j] = dp[i - 1][j] + dp[i][j - 1];
                 }
             }
         }
-
-
+        return dp[m -1][n -1];
     }
 }

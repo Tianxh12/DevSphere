@@ -1,8 +1,12 @@
 package com.devsphere.mapper;
 
 import com.devsphere.annotation.AutoFill;
+import com.devsphere.dto.DishPageQueryDTO;
 import com.devsphere.entity.Dish;
 import com.devsphere.enumeration.OperationType;
+import com.devsphere.vo.DishVO;
+import com.github.pagehelper.Page;
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
@@ -19,4 +23,26 @@ public interface DishMapper {
 
     @AutoFill(value = OperationType.INSERT)
     void insert(Dish dish);
+
+    Page<DishVO> pageQuery(DishPageQueryDTO dishPageQueryDTO);
+
+    /**
+     * 根据主键查询菜品
+     *
+     * @param id
+     * @return
+     */
+    @Select("select * from dish where id = #{id}")
+    Dish getById(Long id);
+
+    /**
+     * 根据主键删除菜品数据
+     *
+     * @param id
+     */
+    @Delete("delete from dish where id = #{id}")
+    void deleteById(Long id);
+
+    @AutoFill(value = OperationType.UPDATE)
+    void update(Dish dish);
 }
